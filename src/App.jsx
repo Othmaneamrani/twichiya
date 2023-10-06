@@ -1,12 +1,13 @@
-import { useState } from 'react'
-import Abir from '/Abir'
-import './App.css'
+import React from 'react'
+import Abir from './Abir'
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return <Abir />
-    
+  return(
+  <div>
+    <Abir />
+  </div>
+  )
 }
 
 export default App

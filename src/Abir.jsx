@@ -1,6 +1,7 @@
+
 import React from "react";
 
- export default function abir (){
+ export default function Abir (){
     return (
         <div>
             <h3>ldfslgh</h3>
