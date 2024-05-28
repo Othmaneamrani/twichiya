@@ -1,14 +1,20 @@
-import React from 'react'
-import Abir from './Abir'
-
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
+import Add from './components/Add';
+import { TestProvider } from './components/TestContext'; 
 
 function App() {
-  return(
-  <div>
-    <h1>branche11111</h1>
-    <Abir />
-  </div>
-  )
+  return (
+    <TestProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/add" element={<Add />} />
+        </Routes>
+      </BrowserRouter>
+    </TestProvider>
+  );
 }
 
-export default App
+export default App;
