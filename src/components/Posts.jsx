@@ -2,11 +2,14 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {setPostDetail} from "../redux/actions.jsx";
 
 
 export default function Posts () {
     const navigate = useNavigate();
     const [posts, setPosts] = useState([]);
+    const dispatch = useDispatch();
 
     const handleGetPosts = async () => {
             const response = await axios.get('http://localhost:5000/posts').then((resp) => setPosts(resp.data)).catch((err)=> console.log(err));
@@ -15,6 +18,7 @@ export default function Posts () {
 
       const handleDetails = async (id) => {
         const postDetail = posts.filter(p => p.id === id);
+          dispatch(setPostDetail(postDetail));
         navigate("/detail");
       }
 

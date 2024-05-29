@@ -1,10 +1,8 @@
-import { useContext } from "react";
-import { TestContext } from "./TestContext";
-
-
+import {useSelector} from "react-redux";
 export default function DetailPost () {
 
-    
+    const postDetail = useSelector(state => state.post.postDetail);
+    const post = postDetail[0];
 
     return(
         <div>

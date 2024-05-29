@@ -5,10 +5,13 @@ import Add from './components/Add';
 import { TestProvider } from './components/TestContext'; 
 import DetailPost from './components/DetailPost';
 import Posts from './components/Posts';
+import {Provider} from "react-redux";
+import store from "./redux/store.jsx";
 
 function App() {
   return (
-    <TestProvider>
+    //<TestProvider>
+      <Provider store={store}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -17,7 +20,8 @@ function App() {
           <Route path="/posts" element={<Posts />} />
         </Routes>
       </BrowserRouter>
-    </TestProvider>
+    {/*</TestProvider>*/}
+</Provider>
   );
 }
 
