@@ -73,7 +73,9 @@ import { TestContext } from "./TestContext";
             <p>{user.nom}</p>
             <p>{user.age}</p>
 
-            <Link to={"/add"} >Navigate</Link>
+            <Link to={"/add"} >Add</Link>
+            <br />
+            <Link to={"/posts"} >Posts</Link>
         </div>
     )
 }
