@@ -1,15 +1,12 @@
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { TestContext } from "./TestContext";
 
 
 export default function Posts () {
     const navigate = useNavigate();
     const [posts, setPosts] = useState([]);
-    const { setPostDetail } = useContext(TestContext);
-
 
     const handleGetPosts = async () => {
             const response = await axios.get('http://localhost:5000/posts').then((resp) => setPosts(resp.data)).catch((err)=> console.log(err));
@@ -18,7 +15,6 @@ export default function Posts () {
 
       const handleDetails = async (id) => {
         const postDetail = posts.filter(p => p.id === id);
-        setPostDetail(postDetail);
         navigate("/detail");
       }
 

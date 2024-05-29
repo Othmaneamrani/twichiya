@@ -4,8 +4,7 @@ import { TestContext } from "./TestContext";
 
 export default function DetailPost () {
 
-    const { postDetail } = useContext(TestContext);
-    const post = postDetail[0];
+    
 
     return(
         <div>
