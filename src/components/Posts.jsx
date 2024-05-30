@@ -2,13 +2,13 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { TestContext } from "./TestContext";
+import {PostContext} from "./PostContext.jsx";
 
 
 export default function Posts () {
     const navigate = useNavigate();
     const [posts, setPosts] = useState([]);
-    const { setPostDetail } = useContext(TestContext);
+    const { setPostDet } = useContext(PostContext);
 
 
     const handleGetPosts = async () => {
@@ -18,7 +18,7 @@ export default function Posts () {
 
       const handleDetails = async (id) => {
         const postDetail = posts.filter(p => p.id === id);
-        setPostDetail(postDetail);
+        setPostDet(postDetail);
         navigate("/detail");
       }
 

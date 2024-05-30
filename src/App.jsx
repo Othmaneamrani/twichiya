@@ -5,16 +5,20 @@ import Add from './components/Add';
 import { TestProvider } from './components/TestContext'; 
 import DetailPost from './components/DetailPost';
 import Posts from './components/Posts';
+import {PostProvider} from "./components/PostContext.jsx";
 
 function App() {
   return (
     <TestProvider>
       <BrowserRouter>
         <Routes>
+
           <Route path="/" element={<Home />} />
           <Route path="/add" element={<Add />} />
-          <Route path="/detail" element={<DetailPost />} />
-          <Route path="/posts" element={<Posts />} />
+
+            <Route path="/detail" element={<PostProvider><DetailPost/></PostProvider>} />
+            <Route path="/posts" element={<PostProvider><Posts /></PostProvider>} />
+
         </Routes>
       </BrowserRouter>
     </TestProvider>

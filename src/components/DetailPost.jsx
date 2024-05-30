@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { TestContext } from "./TestContext";
+import {PostContext} from "./PostContext.jsx";
 
 
 export default function DetailPost () {
 
-    const { postDetail } = useContext(TestContext);
-    const post = postDetail[0];
+    const { postDet } = useContext(PostContext);
+    const post = postDet[0];
 
     return(
         <div>
