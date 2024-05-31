@@ -9,6 +9,14 @@ const postReducer = (state = initialState, action) => {
                 ...state,
                 postDetail: action.payload
             };
+        case 'SET_POST_INC':
+            return {
+                ...state,
+                postDetail: {
+                    ...action.payload,
+                    id:action.payload.id+1
+                }
+            }
         default:
             return state;
     }

@@ -10,7 +10,6 @@ import store from "./redux/store.jsx";
 
 function App() {
   return (
-    //<TestProvider>
       <Provider store={store}>
       <BrowserRouter>
         <Routes>
@@ -20,7 +19,6 @@ function App() {
           <Route path="/posts" element={<Posts />} />
         </Routes>
       </BrowserRouter>
-    {/*</TestProvider>*/}
 </Provider>
   );
 }

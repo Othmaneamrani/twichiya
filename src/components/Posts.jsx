@@ -3,12 +3,13 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {setPostDetail} from "../redux/actions.jsx";
+import {setCommAna, setPostDetail, setPostIncrement} from "../redux/actions.jsx";
 
 
 export default function Posts () {
     const navigate = useNavigate();
     const [posts, setPosts] = useState([]);
+    const [comm, setComm] = useState({"id": 1, "postId": 1, "content": "Comment 1"});
     const dispatch = useDispatch();
 
     const handleGetPosts = async () => {
@@ -17,10 +18,23 @@ export default function Posts () {
 
 
       const handleDetails = async (id) => {
-        const postDetail = posts.filter(p => p.id === id);
-          dispatch(setPostDetail(postDetail));
+        const postDetail = posts.find(p => p.id === id);
+        dispatch(setPostDetail(postDetail));
         navigate("/detail");
       }
+
+
+      const handleComm = () => {
+        dispatch(setCommAna(comm));
+          navigate("/detail");
+      }
+
+
+    const handleDetailsInc = async (id) => {
+        const postDetail = posts.find(p => p.id === id);
+        dispatch(setPostIncrement(postDetail));
+        navigate("/detail");
+    }
 
 
     useEffect(() => {
@@ -28,19 +42,29 @@ export default function Posts () {
       }, []);
     return(
         <div>
-        <h1>Posts</h1>
-        {posts && posts.length > 0 && (
-                        posts.map((post, index) => (
-                                <div key={index} >
-                                    <p>{post.id}</p>
-                                    <p>{post.title}</p>
-                                    <p>{post.content}</p>
-                                    <button onClick={() => handleDetails(post.id)} > Details</button>
-                                    <br />
-                                    <p>__________________________</p>
-                                </div>
-                            ))
-                    )}
-      </div>
+
+            <h2>Comm</h2>
+            <p>{comm.id}</p>
+            <p>{comm.postId}</p>
+            <p>{comm.content}</p>
+            <button onClick={handleComm}>Details</button>
+
+
+            <h1>Posts</h1>
+            {posts && posts.length > 0 && (
+                posts.map((post, index) => (
+                    <div key={index}>
+                        <p>{post.id}</p>
+                        <p>{post.title}</p>
+                        <p>{post.content}</p>
+                        <button onClick={() => handleDetails(post.id)}>Details</button>
+                        <button onClick={() => handleDetailsInc(post.id)}>Inc</button>
+
+                        <br/>
+                        <p>__________________________</p>
+                    </div>
+                ))
+            )}
+        </div>
     );
-  }
+}
