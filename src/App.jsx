@@ -14,8 +14,8 @@ function App() {
       <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/add" element={<Add />} />
+            <Route path="/" element={<TestProvider><Home /></TestProvider> } />
+            <Route path="/add" element={<TestProvider><Add /></TestProvider> }/>
           <Route path="/detail" element={<DetailPost />} />
           <Route path="/posts" element={<Posts />} />
         </Routes>
