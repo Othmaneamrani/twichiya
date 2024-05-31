@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {setPostDet} from "../redux/PostSlice.jsx";
+import {setPostDetail} from "../redux/actions.jsx";
 
 
 export default function Posts () {
@@ -18,7 +18,7 @@ export default function Posts () {
 
       const handleDetails = async (id) => {
         const postDetail = posts.filter(p => p.id === id);
-          dispatch(setPostDet(postDetail));
+          dispatch(setPostDetail(postDetail));
         navigate("/detail");
       }
 
