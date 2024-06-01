@@ -6,6 +6,7 @@ import { TestProvider } from './components/TestContext';
 import DetailPost from './components/DetailPost';
 import Posts from './components/Posts';
 import {PostProvider} from "./components/PostContext.jsx";
+import Posts2 from "./components/Posts2.jsx";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
           <Route path="/add" element={<Add />} />
 
             <Route path="/detail" element={<PostProvider><DetailPost/></PostProvider>} />
-            <Route path="/posts" element={<PostProvider><Posts /></PostProvider>} />
+          <Route path="/posts" element={<PostProvider><Posts /></PostProvider>} />
+          <Route path="/posts2" element={<PostProvider><Posts2 /></PostProvider>} />
 
         </Routes>
       </BrowserRouter>
