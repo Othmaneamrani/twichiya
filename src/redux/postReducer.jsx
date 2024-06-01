@@ -1,5 +1,6 @@
 const initialState = {
-    postDetail: {}
+    postDetail: {},
+    posts:[]
 };
 
 const postReducer = (state = initialState, action) => {
@@ -17,6 +18,11 @@ const postReducer = (state = initialState, action) => {
                     id:action.payload.id+1
                 }
             }
+        case 'SET_POSTS' :
+            return {
+                ...state,
+                posts: action.payload
+            };
         default:
             return state;
     }

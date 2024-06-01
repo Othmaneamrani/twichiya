@@ -15,3 +15,9 @@ export const setCommAna = (comm) => ({
     type: 'COMM_ANA',
     payload: comm
 });
+
+
+export const setPosts = (posts)=> ({
+    type:'SET_POSTS',
+    payload:posts
+});
