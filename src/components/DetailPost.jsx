@@ -1,8 +1,7 @@
 import {useSelector} from "react-redux";
 export default function DetailPost () {
 
-    const postDetail = useSelector(state => state.post.postDet);
-    const post = postDetail[0];
+    const post= useSelector(state => state.post.postDet);
 
     return(
         <div>

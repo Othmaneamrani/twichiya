@@ -7,6 +7,7 @@ import DetailPost from './components/DetailPost';
 import Posts from './components/Posts';
 import {Provider} from "react-redux";
 import store from "./redux/store.jsx";
+import Increment from "./components/Increment.jsx";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
             <Route path="/" element={<TestProvider><Home /></TestProvider> } />
             <Route path="/add" element={<TestProvider><Add /></TestProvider> }/>
           <Route path="/detail" element={<DetailPost />} />
-          <Route path="/posts" element={<Posts />} />
+            <Route path="/posts" element={<Posts />} />
+            <Route path="/inc" element={<Increment />} />
         </Routes>
       </BrowserRouter>
     {/*</TestProvider>*/}
